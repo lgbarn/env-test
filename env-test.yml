@@ -4,7 +4,6 @@
 
   tasks:
     - name: Print all available facts
-      ansible.builtin.debug:
-        msg: "{{ ansible_facts }}"
+      ansible.builtin.setup:
       delegate_to: localhost
 
