@@ -15,5 +15,5 @@
 
     - name: Lookup env var
       ansible.builtin.debug:
-        msg: "{{ lookup('env', 'VAULT_TOKEN') }}"
+        msg: "{{ lookup('env', 'VAULT_TOKEN', 'USER') }}"
       delegate_to: localhost
