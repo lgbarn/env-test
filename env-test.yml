@@ -12,3 +12,8 @@
     - name: Print all available facts using setup
       ansible.builtin.setup:
       delegate_to: localhost
+
+    - name: Lookup env var
+      ansible.builtin.debug:
+        msg: "{{ lookup('env', 'VAULT_TOKEN') }}"
+      delegate_to: localhost
