@@ -9,3 +9,6 @@
         msg: "{{ ansible_facts }}"
       delegate_to: localhost
 
+    - name: Print all available facts using setup
+       ansible.builtin.setup:
+       delegate_to: localhost
