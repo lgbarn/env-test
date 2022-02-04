@@ -1,7 +1,7 @@
 ---
 - hosts: 127.0.0.1
   connection: local
-  gather_facts: true
+  gather_facts: false
 
   tasks:
     - name: Print all available facts
@@ -15,5 +15,5 @@
 
     - name: Lookup env var
       ansible.builtin.debug:
-        msg: "{{ lookup('env', 'VAULT_TOKEN', 'USER') }}"
+        msg: "{{ lookup('env', 'VAULT_TOKEN', 'HOME') }}"
       delegate_to: localhost
