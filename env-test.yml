@@ -9,8 +9,14 @@
         msg: "{{ ansible_facts }}"
       delegate_to: localhost
 
-    - name: Print all available facts using setup
-      ansible.builtin.setup:
+    - name: Print all environment variables
+      shell: set
+      register: env_vars
+      delegate_to: localhost
+
+    - name: print env_vars
+      ansible.builtin.debug:
+        msg: "{{ env_vars.stdout }}"
       delegate_to: localhost
 
     - name: Lookup env var
