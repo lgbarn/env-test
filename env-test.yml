@@ -11,8 +11,6 @@
       pip:
         name: "hvac"
         state: present
-        extra_args: "--upgrade"
-        executable: "/usr/bin/pip"
 
     - name: Return secrets
       ansible.builtin.set_fact:
