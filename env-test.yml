@@ -4,10 +4,12 @@
   gather_facts: false
   collections:
     - community.hashi_vault
-  include_vars:
-    - /etc/ansible/vars/vault_creds.yml
 
   tasks:
+    - name: include vars file
+      include_vars:
+        dir: /etc/ansible/vars
+
     - name: Install pip module hvac
       pip:
         name: "hvac"
