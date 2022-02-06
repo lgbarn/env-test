@@ -4,6 +4,11 @@
   gather_facts: false
 
   tasks:
+    - name: Return secrets
+      ansible.builtin.set_fact:
+        customer_db: "{{ lookup('community.hashi_vault.hashi_vault', 'kv/database/ibm_cloud/customer_db', url='https://vault.blockspaces.us:8200') }}"
+        #customer_db: "{{ lookup('community.hashi_vault.hashi_vault', 'kv/database/ibm_cloud/customer_db', token='s.tDdpwK7Hm2XJ0cM5LzHarvB3', url='https://vault.blockspaces.us:8200') }}"
+        
     - name: Print all available facts
       ansible.builtin.debug:
         msg: "{{ ansible_facts }}"
