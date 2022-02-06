@@ -8,7 +8,7 @@
   tasks:
     - name: include vars file
       include_vars:
-        dir: /etc/ansible/vars
+        dir: /etc/ansible/vars/
 
     - name: Install pip module hvac
       pip:
