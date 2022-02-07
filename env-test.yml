@@ -12,9 +12,13 @@
         name: "hvac"
         state: present
 
+    - name: print vault info
+      debug:
+        var: "{{ lookup('community.hashi_vault', 'kv/database/ibm_cloud/customer_db', token='{{ token }}', url='{{ vault_url }}') }}"
+
     - name: Return secrets
       ansible.builtin.set_fact:
-        customer_db: "{{ lookup('community.hashi_vault.hashi_vault', 'kv/database/ibm_cloud/customer_db', token=s.tDdpwK7Hm2XJ0cM5LzHarvB3, url=vault_url)  }}"
+        customer_db: "{{ lookup('community.hashi_vault', 'kv/database/ibm_cloud/customer_db', token=s.tDdpwK7Hm2XJ0cM5LzHarvB3, url=vault_url)  }}"
         # customer_db: "{{ lookup('community.hashi_vault.hashi_vault', 'kv/database/ibm_cloud/customer_db', token=[token], url=[vault_url])  }}"
         # customer_db: "{{ lookup('community.hashi_vault.hashi_vault', 'kv/database/ibm_cloud/customer_db', url='https://vault.blockspaces.us:8200') }}"
 
