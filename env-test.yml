@@ -17,10 +17,6 @@
         ansible_hashi_vault_addr: "http://vault.blockspaces.us"
         ansible_hashi_vault_token: "s.tDdpwK7Hm2XJ0cM5LzHarvB3"
 
-    - name: print vault info
-      debug:
-        var: "{{ lookup('hashi_vault', 'kv/database/ibm_cloud/customer_db') }}"
-
     - name: Return secrets
       ansible.builtin.set_fact:
         customer_db: "{{ lookup('community.hashi_vault', 'secret=kv/database/ibm_cloud/customer_db' token=s.tDdpwK7Hm2XJ0cM5LzHarvB3 url='https://vault.blockspaces.us:8200')  }}"
