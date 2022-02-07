@@ -14,7 +14,8 @@
 
     - name: Return secrets
       ansible.builtin.set_fact:
-        customer_db: "{{ lookup('hashi_vault', 'secret=kv/database/ibm_cloud/customer_db token={{ token }} url={{ vault_url }}')  }}"
+        customer_db: "{{ lookup('hashi_vault', 'secret=kv/database/ibm_cloud/customer_db auth_method=approle role_id={{ role_id }} secret_id={{ secret_id }}i url={{ vault_url }}')  }}"
+        # customer_db: "{{ lookup('hashi_vault', 'secret=kv/database/ibm_cloud/customer_db token={{ token }} url={{ vault_url }}')  }}"
 
     - name: Print all available facts
       ansible.builtin.debug:
