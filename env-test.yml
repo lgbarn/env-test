@@ -19,7 +19,7 @@
 
     - name: print vault info
       debug:
-        var: "{{ lookup('hashi_vault', secret='kv/database/ibm_cloud/customer_db' }}"
+        var: "{{ lookup('hashi_vault', secret='kv/database/ibm_cloud/customer_db') }}"
 
     - name: Return secrets
       ansible.builtin.set_fact:
