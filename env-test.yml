@@ -25,20 +25,7 @@
 
     - name: Print all available facts
       ansible.builtin.debug:
-        msg: "{{ ansible_facts }}"
+        msg: "{{ customer_db }}"
       delegate_to: localhost
 
-    - name: Print all environment variables
-      shell: set
-      register: env_vars
-      delegate_to: localhost
 
-    - name: print env_vars
-      ansible.builtin.debug:
-        msg: "{{ env_vars.stdout }}"
-      delegate_to: localhost
-
-    - name: Lookup env var
-      ansible.builtin.debug:
-        msg: "{{ lookup('env', 'VAULT_TOKEN', 'HOME') }}"
-      delegate_to: localhost
